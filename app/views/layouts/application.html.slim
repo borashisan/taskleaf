@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title
+      | Taskleaf
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  body
+    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+      .navbar-brand Taskleaf
+    .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield
